@@ -1,14 +1,79 @@
 # linux upload
-week 2
 
 - 
-week 3
-week 4
-week 5
-week 6
-week 7
-week 9
-week 10
-week 11
-week 12
-week 13
+
+
+week 2. -사용자 생성 및 스냅슛 기능 사용
+
+week 3. -디렉터리 및 파일 생성/관리,파일 및 디렉토리 검색과 파일 내용 검색 실습
+-문제 풀기 : 홈 디렉 list.txt 리다이렉션, 1일 이내 변경 파일 검색, 특정 파일 검색, /root의 alias이름을 포함하는 파일명과 행 번호 출력. 완료
+
+week 4. -사용자 계정 생성/삭제 방법⁠
+-패스워드 보안 설정⁠ / 사용자 그룹 관리와 권한 설정
+-OpenSSH 서버 설치와 원격 접속 설정⁠
+-폴더 공유 설정
+- 문제 풀기 : adduser 명령어로 홈 디렉터리를 지정하여 test 사용자를 생성,
+Test 사용자의 패스워드를 지정과 함께 최소일 7일, 최대일 10일로 설정.
+chage로 확인 및 설정
+gid 3000번 new 그룹, 3005번 old 그룹을 2개 생성.
+/etc/group (그룹 확인)
+사용자 test의 주 그룹으로 new, 보조 그룹으로 old를 추가, id로 확인
+사용자 test를 홈 디렉터리를 포함하여 모두 삭제, 기존 test 그룹도 삭제. 완료
+
+week 5.- 파일/ 디렉터리 권한 관리⁠ (기본 권한, 소유권, 허가권, 특수 실행 권한)
+   - 파일 속성 확인 및 변경 관리, 공유폴더 자동등록
+- 문제 풀기 : 폴더 및 디렉터리의 생성 시 권한을 750 (rwx, r-x, ---) 로 변경하고 싶다. 기본 umask값은 몇 으로 변경? 777 - umask = 750 → umask = 027
+홈 디렉터리에 임시 파일 temp.txt를 생성, 파일의 허가 권한을 700으로 수정, temp.txt에 특수 권한을 추가, 파일 속성을 읽기/쓰기까지 가능하고 삭제만 되지 않도록 속성을 수정. 완료
+
+week 6. -프로세스 구분 및 구조, 상태확인 및 검색과 실행.
+   -정지 및 종료 실습과 좀비 프로세스 생성 및 프로세스 관리
+- 문제 풀기 : 완료
+
+week 7.- 깃허브 저장소 생성 및 원격 추가, 깃허브에 리눅스  실습 결과 업로드
+- 문제 풀기:
+
+week 9.- 리눅스 패키지 검색 및 세부정보 확인, 업데이트 및 업그레이드, 설치, 삭제 및 정리
+  - 하드디스크 정보 확인 및 파티션 포맷, fstab 등록,
+  - 문제 풀기 : RAID 0번 설정하기 완료
+
+week 10. - 아파치 웹서버 시작 및 php 동작 조작, 워드프레스 파일 이동 및 권한 수정, 
+- MySQL 데이터베이스 생성, ftp 서버 설치 및 설정
+
+week 11. -ftp 서버 설정 및 저장, 서버 디렉 경로 확인 및 설정 찾기, 웹 로컬 헤더 정보 출력, 
+- 아파치 웹서버 보안 설정 변경(디렉터리 파일 목록 확인 및 특정 폴더에 업로드 제한), 불필요 파일 제거 및 불필요한 모듈 비활성화 및 웹 서버 백업
+- 문제 풀기 : 워드프레스 보안 실습을 수행하고 스크린샷, Crontab에 자동화, 깃 허브 업로드(스크린샷 폴더 생성)
+1) 로그인 시스템이 충분히 강력하지 않습니다. 이중 인증 시스템이 필요합니다.
+2) 3개의 플러그인이 최신 버전이 아닙니다: Akismet Anti-spam, SecuPress Free with Simple SSL, UpdraftPlus - Backup/Restore.
+3) WordPress 코어가 최신 버전이 아닙니다.
+4) wp-config.php 파일 내에 아래 PHP 상수들이 적절히 설정되어 있지 않습니다:
+5) 사이트가 HTTPS/SSL을 사용하지 않고 있습니다.
+
+week 13. - 웹서버 관리용 ZAP 설치, 및 프록시 서버 등록 및 딥 스캐닝,
+- 웹 방화벽 설치 및 활성화, crs 다운로드 및 설정 복사, 웹 방화벽 설정에 crs 연결, 웹 방화벽 차단 모드 활성화
+- 공격 탐지에 대한 로그 확인
+- 문제 풀기 : 
+1) Absence of Anti-CSRF Tokens
+해결책: 중요한 요청에 CSRF 토큰을 생성하고 서버에서 검증 처리.
+2) Content Security Policy Header Not Set
+해결책: 응답 헤더에 Content-Security-Policy: default-src 'self'; 추가.
+3) Missing Anti-clickjacking Header
+해결책: 응답 헤더에 X-Frame-Options: DENY 또는 SAMEORIGIN 추가.
+4) Cookie without SameSite Attribute
+해결책: Set-Cookie 시 SameSite=Strict 속성 지정.
+5) X-Content-Type-Options Header Missing
+해결책: 응답 헤더에 X-Content-Type-Options: nosniff 추가.
+- 5개 공격 url
+1	SQL Injection	SQL Injection 		관련 입력 감지됨 (id=1')	높음
+2	XSS (스크립트 삽입)	<script> 		태그 포함된 요청 탐지됨	중간
+3	LFI (파일 포함 공격)	../../etc/passwd 	경로 접근 시도 감지	높음
+4	Command Injection	;whoami 		명령어 삽입 시도 탐지됨	높음
+5	Path Traversal	../../../etc/shadow 		경로 접근 시도 감지	높음
+
+13. - 시스템 모니터링 부하 테스트 실습, cpu 상세 분석 및  cpu 과부화 테스트 실습,  메모리 과부화 테스트 및 자원 확인
+- 네트워크 과부화 테스트 실습 및 자원 확인
+- 문제 풀기 : 분석 결과
+htop 기준, 테스트 직후 CPU 사용률 급상승
+load average가 급격히 증가하며 시스템 반응 속도 저하
+병렬 요청 처리로 RAM 사용량 수 GB 까지 증가
+프로세스 수가 많아짐에 따라 스왑 사용 가능성도 있음
+
