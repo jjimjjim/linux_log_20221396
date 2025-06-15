@@ -1,0 +1,2 @@
+echo test
+relay test
